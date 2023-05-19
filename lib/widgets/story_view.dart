@@ -408,6 +408,8 @@ class StoryView extends StatefulWidget {
   // Indicator Color
   final Color indicatorColor;
 
+  final Widget profileWidget;
+
   StoryView({
     required this.storyItems,
     required this.controller,
@@ -418,6 +420,7 @@ class StoryView extends StatefulWidget {
     this.inline = false,
     this.onVerticalSwipeComplete,
     this.indicatorColor = Colors.white,
+    required this.profileWidget,
   });
 
   @override
@@ -712,6 +715,12 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
                   widget.controller.previous();
                 }),
                 width: 70),
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: SafeArea(
+              child: widget.profileWidget,
+            ),
           ),
         ],
       ),
