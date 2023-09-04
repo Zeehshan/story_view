@@ -409,6 +409,8 @@ class StoryView extends StatefulWidget {
   final Color indicatorColor;
 
   final Widget profileWidget;
+  final int likes;
+  final Function() onLiked;
 
   StoryView({
     required this.storyItems,
@@ -421,6 +423,8 @@ class StoryView extends StatefulWidget {
     this.onVerticalSwipeComplete,
     this.indicatorColor = Colors.white,
     required this.profileWidget,
+    required this.likes,
+    required this.onLiked,
   });
 
   @override
