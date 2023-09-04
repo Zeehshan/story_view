@@ -731,9 +731,9 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
             alignment: Alignment.topRight,
             child: SafeArea(
               child: Container(
-                margin: EdgeInsets.only(top: 10, right: 0),
-                width: 55,
-                height: 55,
+                margin: EdgeInsets.only(top: 30, right: 0),
+                width: 50,
+                height: 50,
                 child: StoryLikeWidget(
                   likes: widget.likes,
                   onLiked: widget.onLiked,
