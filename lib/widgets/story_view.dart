@@ -411,6 +411,7 @@ class StoryView extends StatefulWidget {
   final Widget profileWidget;
   final int likes;
   final Function() onLiked;
+  final Widget onComment;
   final bool isLikedByCurrentUser;
 
   StoryView(
@@ -426,7 +427,8 @@ class StoryView extends StatefulWidget {
       required this.profileWidget,
       required this.likes,
       required this.onLiked,
-      required this.isLikedByCurrentUser});
+      required this.isLikedByCurrentUser,
+      required this.onComment});
 
   @override
   State<StatefulWidget> createState() {
@@ -739,6 +741,18 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
                   onLiked: widget.onLiked,
                   likesByCurrentUser: widget.isLikedByCurrentUser,
                 ),
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.topRight,
+            child: SafeArea(
+              child: Container(
+                margin: EdgeInsets.only(top: 90, right: 0),
+                width: 50,
+                height: 50,
+                child: Material(
+                    color: Colors.transparent, child: widget.onComment),
               ),
             ),
           ),
