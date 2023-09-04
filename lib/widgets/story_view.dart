@@ -765,12 +765,13 @@ class StoryLikeWidget extends StatelessWidget {
         onTap: onLiked,
         child: Column(
           children: [
-            Icon(
-              likesByCurrentUser
-                  ? Icons.thumb_up_off_alt_sharp
-                  : Icons.thumb_up_alt_outlined,
-              color: likesByCurrentUser ? null : Colors.white,
-              size: 30,
+            Expanded(
+              child: Icon(
+                likesByCurrentUser
+                    ? Icons.thumb_up_off_alt_sharp
+                    : Icons.thumb_up_alt_outlined,
+                color: likesByCurrentUser ? null : Colors.white,
+              ),
             ),
             Text(
               likes.toString(),
