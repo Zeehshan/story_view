@@ -729,14 +729,16 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
           ),
           Align(
             alignment: Alignment.topRight,
-            child: Container(
-              margin: EdgeInsets.only(top: 30, right: 20),
-              width: 60,
-              height: 60,
-              child: StoryLikeWidget(
-                likes: widget.likes,
-                onLiked: widget.onLiked,
-                likesByCurrentUser: widget.isLikedByCurrentUser,
+            child: SafeArea(
+              child: Container(
+                margin: EdgeInsets.only(top: 10, right: 0),
+                width: 55,
+                height: 55,
+                child: StoryLikeWidget(
+                  likes: widget.likes,
+                  onLiked: widget.onLiked,
+                  likesByCurrentUser: widget.isLikedByCurrentUser,
+                ),
               ),
             ),
           ),
@@ -767,11 +769,14 @@ class StoryLikeWidget extends StatelessWidget {
           children: [
             Expanded(
               flex: 2,
-              child: Icon(
-                likesByCurrentUser
-                    ? Icons.thumb_up_off_alt_sharp
-                    : Icons.thumb_up_alt_outlined,
-                color: likesByCurrentUser ? null : Colors.white,
+              child: FittedBox(
+                fit: BoxFit.cover,
+                child: Icon(
+                  likesByCurrentUser
+                      ? Icons.thumb_up_off_alt_sharp
+                      : Icons.thumb_up_alt_outlined,
+                  color: likesByCurrentUser ? null : Colors.white,
+                ),
               ),
             ),
             Text(
