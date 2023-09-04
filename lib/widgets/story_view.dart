@@ -766,6 +766,7 @@ class StoryLikeWidget extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
+              flex: 2,
               child: Icon(
                 likesByCurrentUser
                     ? Icons.thumb_up_off_alt_sharp
