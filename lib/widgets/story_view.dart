@@ -409,10 +409,9 @@ class StoryView extends StatefulWidget {
   final Color indicatorColor;
 
   final Widget profileWidget;
-  final int likes;
-  final Function() onLiked;
+
+  final Widget onLike;
   final Widget onComment;
-  final bool isLikedByCurrentUser;
 
   StoryView(
       {required this.storyItems,
@@ -425,10 +424,8 @@ class StoryView extends StatefulWidget {
       this.onVerticalSwipeComplete,
       this.indicatorColor = Colors.white,
       required this.profileWidget,
-      required this.likes,
-      required this.onLiked,
-      required this.isLikedByCurrentUser,
-      required this.onComment});
+      required this.onComment,
+      required this.onLike});
 
   @override
   State<StatefulWidget> createState() {
@@ -731,30 +728,11 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
           ),
           Align(
             alignment: Alignment.topRight,
-            child: SafeArea(
-              child: Container(
-                margin: EdgeInsets.only(top: 30, right: 0),
-                width: 50,
-                height: 50,
-                child: StoryLikeWidget(
-                  likes: widget.likes,
-                  onLiked: widget.onLiked,
-                  likesByCurrentUser: widget.isLikedByCurrentUser,
-                ),
-              ),
-            ),
+            child: widget.onLike,
           ),
           Align(
             alignment: Alignment.topRight,
-            child: SafeArea(
-              child: Container(
-                margin: EdgeInsets.only(top: 90, right: 0),
-                width: 50,
-                height: 50,
-                child: Material(
-                    color: Colors.transparent, child: widget.onComment),
-              ),
-            ),
+            child: widget.onComment,
           ),
         ],
       ),
