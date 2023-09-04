@@ -727,19 +727,19 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
               child: widget.profileWidget,
             ),
           ),
-          // Align(
-          //   alignment: Alignment.topRight,
-          //   child: Container(
-          //     margin: EdgeInsets.only(top: 30, right: 20),
-          //     width: 60,
-          //     height: 60,
-          //     child: StoryLikeWidget(
-          //       likes: widget.likes,
-          //       onLiked: widget.onLiked,
-          //       likesByCurrentUser: widget.isLikedByCurrentUser,
-          //     ),
-          //   ),
-          // ),
+          Align(
+            alignment: Alignment.topRight,
+            child: Container(
+              margin: EdgeInsets.only(top: 30, right: 20),
+              width: 60,
+              height: 60,
+              child: StoryLikeWidget(
+                likes: widget.likes,
+                onLiked: widget.onLiked,
+                likesByCurrentUser: widget.isLikedByCurrentUser,
+              ),
+            ),
+          ),
         ],
       ),
     );
