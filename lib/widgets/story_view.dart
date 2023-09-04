@@ -730,6 +730,7 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
           Align(
             alignment: Alignment.topRight,
             child: Container(
+              color: Colors.white,
               margin: EdgeInsets.only(top: 30, right: 20),
               width: 32,
               height: 32,
