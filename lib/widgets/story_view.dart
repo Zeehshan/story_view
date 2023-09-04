@@ -727,7 +727,60 @@ class StoryViewState extends State<StoryView> with TickerProviderStateMixin {
               child: widget.profileWidget,
             ),
           ),
+          Align(
+            alignment: Alignment.topRight,
+            child: Container(
+              margin: EdgeInsets.only(top: 30, right: 20),
+              width: 32,
+              height: 32,
+              child: StoryLikeWidget(
+                likes: widget.likes,
+                onLiked: widget.onLiked,
+                likesByCurrentUser: widget.isLikedByCurrentUser,
+              ),
+            ),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class StoryLikeWidget extends StatelessWidget {
+  final Function() onLiked;
+  final int likes;
+  final bool likesByCurrentUser;
+  const StoryLikeWidget(
+      {super.key,
+      required this.onLiked,
+      required this.likes,
+      required this.likesByCurrentUser});
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        splashColor: Colors.transparent,
+        onTap: onLiked,
+        child: Column(
+          children: [
+            Icon(
+              likesByCurrentUser
+                  ? Icons.thumb_up_off_alt_sharp
+                  : Icons.thumb_up_alt_outlined,
+              color: likesByCurrentUser ? null : Colors.white,
+              size: 30,
+            ),
+            Text(
+              likes.toString(),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge!
+                  .copyWith(color: Colors.white, fontSize: 15),
+            )
+          ],
+        ),
       ),
     );
   }
