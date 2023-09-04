@@ -411,21 +411,22 @@ class StoryView extends StatefulWidget {
   final Widget profileWidget;
   final int likes;
   final Function() onLiked;
+  final bool isLikedByCurrentUser;
 
-  StoryView({
-    required this.storyItems,
-    required this.controller,
-    this.onComplete,
-    this.onStoryShow,
-    this.progressPosition = ProgressPosition.top,
-    this.repeat = false,
-    this.inline = false,
-    this.onVerticalSwipeComplete,
-    this.indicatorColor = Colors.white,
-    required this.profileWidget,
-    required this.likes,
-    required this.onLiked,
-  });
+  StoryView(
+      {required this.storyItems,
+      required this.controller,
+      this.onComplete,
+      this.onStoryShow,
+      this.progressPosition = ProgressPosition.top,
+      this.repeat = false,
+      this.inline = false,
+      this.onVerticalSwipeComplete,
+      this.indicatorColor = Colors.white,
+      required this.profileWidget,
+      required this.likes,
+      required this.onLiked,
+      required this.isLikedByCurrentUser});
 
   @override
   State<StatefulWidget> createState() {
