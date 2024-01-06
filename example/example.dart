@@ -35,6 +35,9 @@ class Home extends StatelessWidget {
             Container(
               height: 300,
               child: StoryView(
+                profileWidget: Container(),
+                onComment: Container(),
+                onLike: Container(),
                 controller: controller,
                 storyItems: [
                   StoryItem.text(
@@ -152,6 +155,9 @@ class _MoreStoriesState extends State<MoreStories> {
         title: Text("More"),
       ),
       body: StoryView(
+        profileWidget: Container(),
+        onComment: Container(),
+        onLike: Container(),
         storyItems: [
           StoryItem.text(
             title: "I guess you'd love to see more of our food. That's great.",
